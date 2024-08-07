@@ -5,6 +5,7 @@ import Threads.Move;
 import Interface.updateMoveKey;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 public class Key implements KeyListener, updateMoveKey {
     private Ball ballMain;
@@ -36,12 +37,20 @@ public class Key implements KeyListener, updateMoveKey {
                 rightPressed = true;
                 break;
             case KeyEvent.VK_Q:
+                int xStepQ = -100;
+                ballMain.setxStep(xStepQ);
+                break;
             case KeyEvent.VK_E:
-                if (moveThread == null || !moveThread.isAlive()) {
-                    move = new Move(ballMain);
-                    moveThread = new Thread(move);
-                    moveThread.start();
-                }
+                int xStepE = 100;
+                ballMain.setxStep(xStepE);
+                break;
+            case KeyEvent.VK_R:
+                int yStepR = -100;
+                ballMain.setyStep(yStepR);
+                break;
+            case KeyEvent.VK_F:
+                int yStepF = 100;
+                ballMain.setyStep(yStepF);
                 break;
             case KeyEvent.VK_ESCAPE:
                 System.exit(0);

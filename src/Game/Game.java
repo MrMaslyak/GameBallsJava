@@ -20,7 +20,7 @@ public class Game extends JFrame implements doPaint, UI {
     private Timer timer;
     private Ball ballMain;
     private Hole hole;
-    private HoleDeleted holeDeleted;
+
     private Key key;
 
     public Game() {
@@ -41,6 +41,7 @@ public class Game extends JFrame implements doPaint, UI {
         setContentPane(mainPanel);
 
         hole = new Hole(5, 5);
+
 
         labels = new LabelBallCount(0);
 
@@ -67,6 +68,7 @@ public class Game extends JFrame implements doPaint, UI {
         timer.start();
 
         ballMain = new Ball(350, 250, 0, 0, Color.black, 50, 50);
+        ballMain.applyDamping();
         key = new Key(ballMain);
         addKeyListener(key);
         balls.add(ballMain);
