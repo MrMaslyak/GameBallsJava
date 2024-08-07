@@ -2,6 +2,7 @@ package Physics;
 
 import Game.Ball;
 import GameUI.Hole;
+import GameUI.LabelBallStrikeCount;
 
 import java.util.ArrayList;
 
@@ -9,18 +10,21 @@ public class HoleDeleted {
 
     private ArrayList<Ball> balls;
     private Hole hole;
+    private LabelBallStrikeCount ballStrikeCount;
 
-    public HoleDeleted(ArrayList<Ball> balls, Hole hole) {
+    public HoleDeleted(ArrayList<Ball> balls, Hole hole, LabelBallStrikeCount ballStrikeCount) {
         this.balls = balls;
         this.hole = hole;
-        checkCollisions();
+        this.ballStrikeCount = ballStrikeCount;
     }
 
     public void checkCollisions() {
-        for (Ball ball : balls) {
+        for (int i = 0; i < balls.size(); i++) {
+            Ball ball = balls.get(i);
             if (isColliding(ball, hole)) {
-                System.out.println("привет");
+                ballStrikeCount.incrementStrikeCount();
                 balls.remove(ball);
+                ballStrikeCount.repaint();
                 break;
             }
         }
