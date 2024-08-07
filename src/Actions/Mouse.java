@@ -3,6 +3,7 @@ package Actions;
 import Game.Ball;
 import GameUI.JPanelLine;
 import GameUI.LabelBallCount;
+import GameUI.LabelBallStrikeCount;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -15,6 +16,7 @@ public class Mouse implements MouseListener {
     private ArrayList<Ball> balls;
     private LabelBallCount labels;
     private JPanelLine panelLine;
+
 
     public Mouse(ArrayList<Ball> balls, LabelBallCount labels, JPanelLine panelLine) {
         this.balls = balls;

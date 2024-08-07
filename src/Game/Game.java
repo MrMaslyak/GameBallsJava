@@ -52,7 +52,7 @@ public class Game extends JFrame implements doPaint, UI {
 
         mainPanel.add(topPanel, BorderLayout.NORTH);
 
-        panelLine = new JPanelLine(balls, hole, labelsStrikeCount);
+        panelLine = new JPanelLine(balls, hole, labelsStrikeCount, labels);
         mainPanel.add(panelLine, BorderLayout.CENTER);
 
         Mouse mouse = new Mouse(balls, labels, panelLine);

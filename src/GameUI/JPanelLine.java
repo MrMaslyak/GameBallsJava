@@ -12,12 +12,14 @@ public class JPanelLine extends JPanel {
     private Image offScreenImage;
     private Graphics offScreenGraphics;
     private LabelBallStrikeCount ballStrikeCount;
+    private LabelBallCount ballCount;
     private Hole hole;
 
-    public JPanelLine(ArrayList<Ball> balls, Hole hole, LabelBallStrikeCount ballStrikeCount) {
+    public JPanelLine(ArrayList<Ball> balls, Hole hole, LabelBallStrikeCount ballStrikeCount, LabelBallCount ballCount) {
         this.balls = balls;
         this.hole = hole;
         this.ballStrikeCount = ballStrikeCount;
+        this.ballCount = ballCount;
         setOpaque(true);
         setLayout(null);
         setPreferredSize(new Dimension(750, 550));
@@ -40,7 +42,7 @@ public class JPanelLine extends JPanel {
         offScreenGraphics.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
 
         new Wall(getWidth(), getHeight(), balls);
-        new Collizion(balls, hole, ballStrikeCount);
+        new Collizion(balls, hole, ballStrikeCount, ballCount);
         balls.forEach(ball -> ball.paint(offScreenGraphics));
 
         g.drawImage(offScreenImage, 0, 0, this);

@@ -14,17 +14,19 @@ public class Collizion {
     private ArrayList<Ball> balls;
     private HoleDeleted holeDeleted;
     private LabelBallStrikeCount ballStrikeCount;
+    private LabelBallCount ballCount;
     private Hole hole;
 
-    public Collizion(ArrayList<Ball> balls, Hole hole, LabelBallStrikeCount  ballStrikeCount) {
+    public Collizion(ArrayList<Ball> balls, Hole hole, LabelBallStrikeCount  ballStrikeCount, LabelBallCount ballCount) {
         this.balls = balls;
         this.hole = hole;
         this.ballStrikeCount = ballStrikeCount;
+        this.ballCount = ballCount;
         collizion();
     }
 
     private void collizion() {
-        holeDeleted = new HoleDeleted(balls, hole,ballStrikeCount );
+        holeDeleted = new HoleDeleted(balls, hole,ballStrikeCount, ballCount );
         holeDeleted.checkCollisions();
         ballStrikeCount.updateCount(balls.size());
 

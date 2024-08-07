@@ -28,7 +28,7 @@ public class LabelBallStrikeCount extends JLabel implements updateCount, UI {
         }
     }
 
-    public boolean isStrike() {
+    public boolean isStrike(boolean b) {
         return isStrike;
     }
 
