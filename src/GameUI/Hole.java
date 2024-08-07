@@ -14,7 +14,7 @@ public class Hole extends JLabel {
         this.y = y;
         setBounds(x, y, w, h);
 
-        ImageIcon originalIcon = new ImageIcon("src/img/holeImg.png");
+        ImageIcon originalIcon = new ImageIcon(getClass().getResource("/img/holeImg.png"));
         Image originalImage = originalIcon.getImage();
         Image resizedImage = originalImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
