@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Game extends JFrame implements doPaint, UI {
     private ArrayList<Ball> balls = new ArrayList<>();
     private LabelBallCount labels;
-//    private LabelBallStrikeCount labelsStrikeCount;
+    private LabelBallStrikeCount labelsStrikeCount;
     private JPanelLine panelLine;
     private Timer timer;
     private Ball ballMain;
@@ -43,17 +43,20 @@ public class Game extends JFrame implements doPaint, UI {
         hole = new Hole(5, 5);
 
         labels = new LabelBallCount(0);
-        mainPanel.add(labels, BorderLayout.NORTH);
 
-//        labelsStrikeCount = new LabelBallStrikeCount(0);
-//        mainPanel.add(labelsStrikeCount, BorderLayout.NORTH);
+        JPanel topPanel = new JPanel(new BorderLayout());
+        topPanel.add(labels, BorderLayout.WEST);
+
+        labelsStrikeCount = new LabelBallStrikeCount(0);
+        topPanel.add(labelsStrikeCount, BorderLayout.EAST);
+
+        mainPanel.add(topPanel, BorderLayout.NORTH);
 
         panelLine = new JPanelLine(balls, hole);
         mainPanel.add(panelLine, BorderLayout.CENTER);
 
         Mouse mouse = new Mouse(balls, labels, panelLine);
         panelLine.addMouseListener(mouse);
-
 
         panelLine.add(hole, BorderLayout.SOUTH);
 
@@ -67,13 +70,8 @@ public class Game extends JFrame implements doPaint, UI {
         key = new Key(ballMain);
         addKeyListener(key);
         balls.add(ballMain);
-
-
-
-
-
-
     }
+
 
     @Override
     public void paint(Graphics g) {

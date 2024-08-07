@@ -23,6 +23,7 @@ public class Collizion {
     private void collizion() {
         holeDeleted = new HoleDeleted(balls, hole);
         holeDeleted.checkCollisions();
+
         for (int i = 0; i < balls.size(); i++) {
             for (int j = i + 1; j < balls.size(); j++) {
                 Ball ball1 = balls.get(i);
